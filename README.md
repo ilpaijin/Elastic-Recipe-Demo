@@ -1,6 +1,9 @@
 Elastic Recipe Demo
 ===================
 
+[DEMO] (http://54.72.77.96/Recipes)
+
+
 ## Installation : 
 
 ### **Elasticsearch**
