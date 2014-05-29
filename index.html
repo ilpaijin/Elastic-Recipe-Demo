@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" ng-app="myOpenRecipes">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/elasticsearch/elasticsearch.angular.min.js"></script>
+</head>
+<body class="index">
+    <div class="container">
+        <div ng-controller="recipeCtrl">
+            
+            <header>
+                <span class="me">Ilpaijin's</span>
+                <h1>Elastic Recipes Demo</h1>    
+            </header>
+
+            <section class="searchField">
+                <form ng-submit="search()">
+                    <div class="form-group">
+                        <input type="text" ng-model="searchTerm"  class="form-control">   
+                    </div>
+                    <input type="submit" value="Search for recipes" class="btn btn-primary"> 
+                </form>
+            </section>
+
+            <section class="meta well">
+                <p>Processed on ES in: <span class="badge">{{processTime}}ms</span></p>
+                <p>Total recipes found: <span class="badge">{{total}} </span> over  <span class="badge">{{totalRecipes}}</span> </p>
+                <p>Now showing: <span class="badge">{{count}}</span> recipes</p>
+            </section>    
+
+            <section class="results">
+
+                <div class="no-recipes" ng-hide="recipes.length">
+                    No Result
+                </div>
+
+                <article class="recipe" ng-repeat="recipe in recipes" ng-cloak>
+                    <h2>
+                        <span class="glyphicon glyphicon-cutlery"></span>
+                        <a ng-href="{{recipe.url}}">{{recipe.name}}</a>
+                    </h2>
+    
+                    <p>
+                        <span class="boldish">Description:</span> {{recipe.description || "//"}}
+                    </p>
+
+                    <p><span class="boldish">Ingredients:</span> {{recipe.ingredients || "//"}}</p>
+
+                    <p><a ng-href="{{recipe.url}}">...more at {{recipe.source}}</a></p>
+
+                </article>
+
+                <div class="load-more" ng-hide="allResults" ng-cloak>
+                    <a ng-click="loadMore()">More...</a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "name": "ElasticRecipeDemo-Loader",
+    "version": "0.0.1",
+    "author": "ilpaijin<ilpaijin@gmail.com>",
+    "devDependencies": {
+
+    },
+    "dependencies": {
+        "elasticsearch": "2.2.*"
+    }
+}
