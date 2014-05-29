@@ -23,7 +23,7 @@ Download latest copy of openrecipes db from [openrecip.es](http://openrecip.es/)
 ### **Load openrecipes db**
 
 ```javascript
-//seed
+// seed/
 
 npm install
 ```
